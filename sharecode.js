@@ -67,9 +67,13 @@ logcode("签到领现金", "JD_CASH_SHARECODES", JD_CASH_SHARECODES);
 console.log(`\n====👆👆👆他人助力码打印结束====\n`);
 
 function logcode(name, codename, code) {
-  console.log(
-    `${name} : ${codename} = ${copytimes(code.join("@"), accountNum)}\n`
-  );
+  if (code.length > 0) {
+    console.log(
+      `${name} : ${codename} = ${copytimes(code.join("@"), accountNum)}\n`
+    );
+  } else {
+    console.log(`${name} : ${codename} = 没找到助力码-_-\n`);
+  }
 }
 
 function logTGcode(name, codename, code) {
