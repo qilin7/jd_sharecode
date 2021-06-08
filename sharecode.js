@@ -4,7 +4,7 @@ const codepath = "./code.txt";
 //#region 可编辑区
 
 //京东账号数(即助力码复制几遍)
-var accountNum = 2;
+var accountNum = 3;
 
 //TG机器人提交助力码（自己账号的助力码放在code.txt文件前面，然后指定需要提交几个账号的数量）
 var tgaccountNum = 2;
@@ -89,9 +89,11 @@ function getCodeArr(lines, codeName) {
       if (line.indexOf(codeName) >= 0) {
         let reg = /[\s\S]*[】](\S*)$/;
         let resArr = line.match(reg);
-
-        //去空格
-        arr.push(resArr[1].replace(/\s*/g, ""));
+        let code = resArr[1].replace(/\s*/g, "");
+        if (code != "undefined" && code.indexOf("未选择种子") < 0) {
+          //去空格
+          arr.push(code);
+        }
       }
     }
   });
