@@ -4,7 +4,7 @@ const codepath = "./code.txt";
 //#region 可编辑区
 
 //京东账号数(即助力码复制几遍)
-var accountNum = 3;
+var accountNum = 4;
 
 //TG机器人提交助力码（自己账号的助力码放在code.txt文件前面，然后指定需要提交几个账号的数量）
 var tgaccountNum = 2;
@@ -68,11 +68,12 @@ console.log(`\n====👆👆👆他人助力码打印结束====\n`);
 
 function logcode(name, codename, code) {
   if (code.length > 0) {
+    console.log(`##${name}\n`);
     console.log(
-      `${name} : ${codename} = ${copytimes(code.join("@"), accountNum)}\n`
+      `export ${codename}='${copytimes(code.join("@"), accountNum)}'\n`
     );
   } else {
-    console.log(`${name} : ${codename} = 没找到助力码-_-\n`);
+    console.log(`##${name} : ${codename} = 没找到助力码-_-\n`);
   }
 }
 
